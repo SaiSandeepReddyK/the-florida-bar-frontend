@@ -15,7 +15,7 @@ const Scraper = () => {
         setIsLoading(true);
         setError(null);
         try {
-            const response = await axios.get(`api/scrape?page=${pageNum}`);
+            const response = await axios.get(`https://the-florida-bar-backend.vercel.app/api/scrape?page=${pageNum}`);
             setListings(response.data.listings);
         } catch (error) {
             console.error("Error fetching data:", error);
@@ -34,7 +34,7 @@ const Scraper = () => {
 
         while (!lastPage) {
             try {
-                const response = await axios.get(`api/scrape?page=${currentPage}`);
+                const response = await axios.get(`https://the-florida-bar-backend.vercel.app/api/scrape?page=${currentPage}`);
                 const data = response.data.listings;
                 
                 allListings = allListings.concat(data);
